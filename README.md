@@ -41,7 +41,8 @@ To run the script and localtunnel at the same time we type: npm run share
 # Transpiling (babel)
 make a .babelrc file in root folder
 start script in package.json file should now read "prestart": "babel-node buildScripts/startMessage.js"
-                                                  "start": "babel-node buildScripts/srcServer.js"
+                                                  "start": "npm-run-all --parallel open:src "
+                                                  "open:src": "babel-node buildScripts/srcServer.js",
 
 we execute babel transpiling in our files by adding adding babel into the scripts in package.json
 
@@ -56,6 +57,25 @@ we execute babel transpiling in our files by adding adding babel into the script
 create webpack.config.dev.js file to define our rules
 
 # Linting
+Run lint: npm run lint
+Run int watch: npm run lint -- --watch
+
+create a file in the root folder called .eslintrc.json
+
+add the contents as shown in the root file
+
+add this code to the sript part of the package.json file: "lint": "esw webpack.config.* src buildScripts --color",
+
+To disable the eslint rules in single files: add the the comment as shown in the srcServer.js file /* eslint-disable no-console */
+
+eslint does not watch files by default so we will now add a script in package.json file to do just that
+"lint:watch": "npm run lint -- --watch"
+
+Also add lint to the start script not just in the lint session
+"start": "npm-run-all --parallel open:src lint:watch"
+
+Run without script
+npm start -s
 
 
 

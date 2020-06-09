@@ -6,6 +6,8 @@ var open = require('open');
 import webpack from 'webpack';
 import config from '../webpack.config.dev';
 
+//let us disable the eslint no-console rule in this file
+/* eslint-disable no-console */
 var port = 3000;
 var app = express();
 const compiler = webpack(config);
