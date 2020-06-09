@@ -107,6 +107,13 @@ npm start -s
 
 CONTINOUS INTEGRATION
 CI Server: Travis(linux) and Appveyor(windows)
+create an account at travis.ord
+create a yml file in root folder called .travis.yml
+
+
+CI Server: appveyor
+create an account at appveyor.com
+create a yml file in the root of the folder called appveyor.yml
 
 
 
