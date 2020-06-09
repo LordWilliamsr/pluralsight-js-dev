@@ -23,4 +23,39 @@ npm install localtunnel -g
 Start your app
 lt --port 3000
 
-# now is used to host ur work on the web in the cloud
+# Automation "now" 
+This is used to host ur work on the web in the cloud
+Use script in package.json to automate for ex how to start node
+we can also make a file called startMessage.js to show a msg when dev starts up, remember to add it in the npm script in package.json
+share ur local app on web automatically in the package.json at start script
+
+  "scripts": {
+    "prestart": "node buildScripts/startMessage.js",
+    "start": "node buildScripts/srcServer.js",
+    "localtunnel": "lt --port 3000",
+    "share": "npm-run-all --parallel open:src localtunnel"
+  },
+
+To run the script and localtunnel at the same time we type: npm run share
+
+# Transpiling (babel)
+make a .babelrc file in root folder
+start script in package.json file should now read "prestart": "babel-node buildScripts/startMessage.js"
+                                                  "start": "babel-node buildScripts/srcServer.js"
+
+we execute babel transpiling in our files by adding adding babel into the scripts in package.json
+
+  "scripts": {
+    "prestart": "babel-node buildScripts/startMessage.js",
+    "start": "babel-node buildScripts/srcServer.js",
+    "localtunnel": "lt --port 3000",
+    "share": "npm-run-all --parallel open:src localtunnel"
+  },
+
+# Bundling "Webpack"
+create webpack.config.dev.js file to define our rules
+
+# Linting
+
+
+
