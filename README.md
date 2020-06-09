@@ -77,5 +77,37 @@ Also add lint to the start script not just in the lint session
 Run without script
 npm start -s
 
+# Testing
+run: npm test or npm t
+Type: unit test
+Framework: MOCHA
+Assertion Library: chai.js
+Helper Library: JSDOM
+Where to run tests: Node
+Test files location: alongside
+When should test run: everytime you hit save
+
+Create a test set up file in buildScripts
+
+edit package.json file to automate test when we hit save
+"test": "mocha --reporter progress buildScripts/testSetup.js \"src/**/*.test.js\""
+
+Create test files for src files
+
+test by running npm test or npm t
+
+automate running testing by adding this line to the package.json file
+"test:watch": "npm run test -- --watch"
+
+also add it to the start script in the package.json file
+"start": "npm-run-all --parallel open:src lint:watch test:watch",
+
+run application with test 
+npm start -s
+
+CONTINOUS INTEGRATION
+CI Server: Travis(linux) and Appveyor(windows)
+
+
 
 
